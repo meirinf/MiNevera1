@@ -5,4 +5,13 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="communicate">Communicate</string>
+    <string name="mi_nevera">Mi nevera</string>
+    <string name="mis_recetas">Mis Recetas</string>
+    <string name="recetas_de_comunidad">Recetas de comunidad</string>
+    <string name="send">Send</string>
+    <string name="share">Share</string>
 </resources>
