@@ -14,4 +14,6 @@
     <string name="recetas_de_comunidad">Recetas de comunidad</string>
     <string name="send">Send</string>
     <string name="share">Share</string>
+    <string name="android_studio">Android Studio</string>
+    <string name="android_studio_android_com">android.studio@android.com</string>
 </resources>
