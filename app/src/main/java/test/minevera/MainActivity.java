@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import layout.FragmentBuscador;
 import layout.FragmentRecetasImpl;
 import layout.RecetaDelDia;
 
@@ -102,6 +103,10 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.Recetas_del_dia) {
            fragment = new FragmentRecetasImpl();
+            transaccion = true;
+        }
+        if (id == R.id.Buscador) {
+            fragment = new FragmentBuscador();
             transaccion = true;
         }
 

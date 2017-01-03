@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <Switch
+        android:text="switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch1" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar" />
+
+    <CheckedTextView
+        android:text="@string/checkedtextview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkedTextView" />
+
+    <RadioButton
+        android:text="@string/radiobutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioButton" />
+</LinearLayout>
