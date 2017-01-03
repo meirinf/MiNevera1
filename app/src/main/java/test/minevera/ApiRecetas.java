@@ -18,13 +18,11 @@ public class ApiRecetas {
 
     //Esta clase se encarga de bajar la información de la Api
 
-    public static ArrayList<Receta> getCardsTypes(String categoria, String nombreReceta) {
+    public static ArrayList<Receta> getMeals() {
 
         //Aqui pasa los parametros de configuración categoria y nombre de receta
         Uri builtUri = Uri.parse(url)
                 .buildUpon()
-                .appendQueryParameter("strCategory", categoria)
-                .appendQueryParameter("strMeal", nombreReceta)
                 .build();
 
         String urls = builtUri.toString();

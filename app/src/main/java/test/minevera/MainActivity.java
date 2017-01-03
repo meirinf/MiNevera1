@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawers();
         return true;
     }
+
     // Puede que se use al almacenar en caché algunas imagenes o la BBDD
        public void pedirPermisoSD(){
 

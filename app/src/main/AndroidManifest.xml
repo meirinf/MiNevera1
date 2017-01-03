@@ -3,6 +3,8 @@
     package="test.minevera">
     <!--Pongo permisos solo para marshamllow y posteriores por si mas adelante hace falta -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--Permiso a internet si no la aplicación fallara al conectarse con la api -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
