@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import layout.FragmentRecetasImpl;
+import layout.RecetaDelDia;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity
 
         //Pondremos el Fragment que utilizaremos al iniciar la aplicación
 
-                fragment = new FragmentRecetasImpl();
+                fragment = new RecetaDelDia();
 
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(null)

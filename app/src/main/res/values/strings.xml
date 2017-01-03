@@ -16,4 +16,7 @@
     <string name="share">Share</string>
     <string name="android_studio">Android Studio</string>
     <string name="android_studio_android_com">android.studio@android.com</string>
+    <string name="textview">TextView</string>
+    <string name="esta_es_la_receta_del_dia">Esta es la receta del dia !!!</string>
+    <string name="no_ha_cargado">no ha cargado</string>
 </resources>
