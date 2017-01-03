@@ -13,8 +13,10 @@ import java.util.Arrays;
 
 import test.minevera.R;
 
-public class recetas extends Fragment {
-
+/**
+ * Created by mireia on 3/01/17.
+ */
+public class FragmentRecetasImpl extends Fragment {
     private ArrayList<String> items;
     private ArrayAdapter<String> adapter;
 
@@ -55,9 +57,7 @@ public class recetas extends Fragment {
 
         return view;
     }
-    public recetas() {
+    public FragmentRecetasImpl() {
         // Required empty public constructor
     }
-
-
 }

@@ -6,11 +6,11 @@ package test.minevera;
 
 public class Receta {
     String imagen;
-    String Area;
+    String area;
     String nombreReceta;
     String ingredientes;
     String textoReceta;
-    String Categoria;
+    String categoria;
 
 
     //Getters
@@ -32,11 +32,11 @@ public class Receta {
     }
 
     public String getArea() {
-        return Area;
+        return area;
     }
 
     public String getCategoria() {
-        return Categoria;
+        return categoria;
     }
 
     //Setters
@@ -59,10 +59,10 @@ public class Receta {
     }
 
     public void setArea(String area) {
-        Area = area;
+        this.area = area;
     }
 
     public void setCategoria(String categoria) {
-        Categoria = categoria;
+        this.categoria = categoria;
     }
 }

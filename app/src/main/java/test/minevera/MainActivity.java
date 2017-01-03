@@ -14,7 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import layout.recetas;
+import layout.FragmentRecetasImpl;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.Recetas_comunidad) {
-           fragment = new recetas();
+           fragment = new FragmentRecetasImpl();
 
         } else if (id == R.id.nav_share) {
 
