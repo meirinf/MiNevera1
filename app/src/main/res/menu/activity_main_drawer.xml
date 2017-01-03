@@ -6,28 +6,15 @@
         <!--Dejo esto por si mas adelante quiero asignarles iconos-->
         <!--android:icon="@drawable/ic_menu_camera"-->
         <item
-            android:id="@+id/Mi_nevera"
+            android:id="@+id/Buscador"
             android:title="@string/mi_nevera" />
         <item
             android:id="@+id/Mis_Recetas_de_cocina"
             android:title="@string/mis_recetas" />
         <item
-            android:id="@+id/Recetas_comunidad"
-            android:title="@string/recetas_de_comunidad" />
+            android:id="@+id/Recetas_del_dia"
+            android:title="Recetas del dia" />
 
     </group>
-
-    <item android:title="@string/communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/send" />
-        </menu>
-    </item>
 
 </menu>
