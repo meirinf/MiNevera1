@@ -46,80 +46,24 @@ public class ApiRecetas {
 
                 //Intento de coger todos los ingredientes
                 if (object.has("strIngredient1")){
-                    receta.setIngredientes(object.getString("strIngredient1")+", ");
-                   /* //Variables
-                    String str = "strIngredient" ;
-                    //Recorrremos un for con 20 ingredientes que en el momento de bajarlos los guarde
-                    //todos en una array list del pojo ingredientes.
-                    for(int it = 1; it < 20; it++){
-                       receta.setIngredientes(object.getString(str+i)+", ");
-                        if (object.getString(str+i).equalsIgnoreCase(null)){
-                            break;
-                        }
-                    }*/
+                    receta.setIngredientes(object.getString("strIngredient1")+" ");
+                    boolean ingredientesCargados = false;   // Determina si ya se han listado todos los ingredientes
+                    int numeroIngredientes = 0;             // Pues eso, el numero de ingredientes
 
+                    while (ingredientesCargados == false) {
+                        numeroIngredientes++;
+                        String etiquetaIngrediente = "strIngredient" + numeroIngredientes;
+
+                        if (object.has(etiquetaIngrediente)) {
+                            receta.setIngredientes(object.getString(etiquetaIngrediente) + " ");
+                        }
+
+                        if(!object.has("strIngredient" + numeroIngredientes+1)) {
+                          receta.setIngredientes(".");
+                            ingredientesCargados = true;
+                        }
+                    }
                 }
-                if (object.has("strIngredient2")) {
-                    receta.setIngredientes(object.getString("strIngredient2")+", ");
-                }
-                if (object.has("strIngredient3")) {
-                    receta.setIngredientes(object.getString("strIngredient3")+", ");
-                }
-                if (object.has("strIngredient4")) {
-                    receta.setIngredientes(object.getString("strIngredient4")+", ");
-                }
-                if (object.has("strIngredient5")) {
-                    receta.setIngredientes(object.getString("strIngredient6")+", ");
-                }
-                if (object.has("strIngredient7")) {
-                    receta.setIngredientes(object.getString("strIngredient7")+", ");
-                }
-                if (object.has("strIngredient8")) {
-                    receta.setIngredientes(object.getString("strIngredient8")+", ");
-                }
-                if (object.has("strIngredient9")) {
-                    receta.setIngredientes(object.getString("strIngredient9")+", ");
-                }
-                if (object.has("strIngredient10")) {
-                    receta.setIngredientes(object.getString("strIngredient10")+", ");
-                }
-                if (object.has("strIngredient11")) {
-                    receta.setIngredientes(object.getString("strIngredient11")+", ");
-                }
-                if (object.has("strIngredient12")) {
-                    receta.setIngredientes(object.getString("strIngredient12")+", ");
-                }
-                if (object.has("strIngredient13")) {
-                    receta.setIngredientes(object.getString("strIngredient13")+".");
-                }
-                /*
-                if (object.has("strIngredient2")) {
-                    receta.setIngredientes(object.getString("strIngredient2")+", ");
-                }
-                if (object.has("strIngredient2")) {
-                    receta.setIngredientes(object.getString("strIngredient2")+", ");
-                }
-                if (object.has("strIngredient2")) {
-                    receta.setIngredientes(object.getString("strIngredient2")+", ");
-                }
-                if (object.has("strIngredient2")) {
-                    receta.setIngredientes(object.getString("strIngredient2")+", ");
-                }
-                if (object.has("strIngredient2")) {
-                    receta.setIngredientes(object.getString("strIngredient2")+", ");
-                }
-                if (object.has("strIngredient2")) {
-                    receta.setIngredientes(object.getString("strIngredient2")+", ");
-                }
-                if (object.has("strIngredient2")) {
-                    receta.setIngredientes(object.getString("strIngredient2")+", ");
-                }
-                if (object.has("strIngredient2")) {
-                    receta.setIngredientes(object.getString("strIngredient2")+", ");
-                }
-                if (object.has("strIngredient2")) {
-                    receta.setIngredientes(object.getString("strIngredient2")+", ");
-                }*/
 
 
                 if (object.has("strInstructions")) {
