@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         // Permisos (solo Marshmallow y superior)
         pedirPermisoSD();
 

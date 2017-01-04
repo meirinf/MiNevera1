@@ -42,6 +42,7 @@ public class FragmentRecetasImpl extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        //Cada vez que se ejecuta descargamos las recetas
         descargarRecetas();
 
     }
@@ -64,24 +65,18 @@ public class FragmentRecetasImpl extends Fragment {
 
         lvRecetas.setAdapter(adapter);
 
-
-
         // Al pulsar en una posicion del listView se ejecuta el onClick
         lvRecetas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-              //Esto mas adelante sera los detalles de receta
                 Intent details = new Intent(getContext(), DetallesRecetasDelDia.class);
                 details.putExtra("receta", items.get(position));
                 startActivity(details);
-
-                //Despues de actualizar los datos movemos el listView hacia arriba
-               lvRecetas.smoothScrollToPosition(0);
             }
         });
 
         return view;
     }
+
 
     //Esto descargara las recetas de la api de internet
     private void descargarRecetas() {

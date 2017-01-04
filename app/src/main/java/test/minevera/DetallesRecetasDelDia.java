@@ -3,7 +3,6 @@ package test.minevera;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,9 +16,6 @@ public class DetallesRecetasDelDia extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles_recetas_del_dia);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Referencias
         TextView texto = (TextView) findViewById(R.id.Instrucciones);
@@ -46,7 +42,6 @@ public class DetallesRecetasDelDia extends AppCompatActivity {
                         load(receta.getImagen()).
                         into(imagen);
 
-                getSupportActionBar().setTitle(receta.getNombreReceta());
             }
         }
         else{
