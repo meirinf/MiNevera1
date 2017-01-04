@@ -57,7 +57,7 @@ public class Receta implements Serializable {
     }
 
     public void setIngredientes(String ingredientes) {
-        this.ingredientes = ingredientes;
+        this.ingredientes = this.ingredientes+ ingredientes;
     }
 
     public void setArea(String area) {
