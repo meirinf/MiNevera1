@@ -23,6 +23,7 @@ public class DetallesRecetasDelDia extends AppCompatActivity {
         TextView tipo= (TextView) findViewById(R.id.adapterCategoria);
         TextView area = (TextView) findViewById(R.id.adapterArea);
         ImageView imagen = (ImageView) findViewById(R.id.adapterImagen);
+        TextView Ingredientes = (TextView)findViewById(R.id.Ingredientes) ;
 
         // Recogemos el intent y cargamos la receta que hemos pasado desde Recetas del dia
         Intent intent = this.getIntent();
@@ -33,15 +34,15 @@ public class DetallesRecetasDelDia extends AppCompatActivity {
 
             if (receta!= null) {
 
-                texto.setText(receta.getTextoReceta());
-                nombreRecta.setText(receta.getNombreReceta());
-                area.setText(receta.getArea());
-                tipo.setText(receta.getCategoria());
+                texto.setText("Instructions : " + receta.getTextoReceta());
+                nombreRecta.setText("Name : " + receta.getNombreReceta());
+                area.setText("Area : " + receta.getArea());
+                tipo.setText("Category : "+ receta.getCategoria());
+                Ingredientes.setText("Ingredients : " + receta.getIngredientes());
 
                 Glide.with(this).
                         load(receta.getImagen()).
                         into(imagen);
-
             }
         }
         else{

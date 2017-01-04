@@ -25,10 +25,6 @@ public class Receta implements Serializable {
         return nombreReceta;
     }
 
-    public String getIngredientes() {
-        return ingredientes;
-    }
-
     public String getTextoReceta() {
         return textoReceta;
     }
@@ -39,6 +35,10 @@ public class Receta implements Serializable {
 
     public String getCategoria() {
         return categoria;
+    }
+
+    public String getIngredientes() {
+        return ingredientes;
     }
 
     //Setters

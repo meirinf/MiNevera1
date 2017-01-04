@@ -44,9 +44,22 @@ public class ApiRecetas {
                 if (object.has("strCategory"))
                     receta.setCategoria(object.getString("strCategory"));
 
-                if (object.has("strIngredient1")) {
+                //Intento de coger todos los ingredientes
+                if (object.has("strIngredient1")){
                     receta.setIngredientes(object.getString("strIngredient1"));
+                   /* //Variables
+                    String str = "strIngredient" ;
+                    //Recorrremos un for con 20 ingredientes que en el momento de bajarlos los guarde
+                    //todos en una array list del pojo ingredientes.
+                    for(int it = 1; it < 20; it++){
+                       receta.setIngredientes(object.getString(str+i)+", ");
+                        if (object.getString(str+i).equalsIgnoreCase(null)){
+                            break;
+                        }
+                    }*/
+
                 }
+
                 if (object.has("strInstructions")) {
                     receta.setTextoReceta(object.getString("strInstructions"));
                 }
