@@ -1,7 +1,6 @@
 package layout;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.io.Serializable;
 import java.util.List;
 
 import test.minevera.R;
@@ -19,7 +19,7 @@ import test.minevera.Receta;
 /**
  * Created by mireia on 3/01/17.
  */
-public class RecetasAdapter extends ArrayAdapter<Receta> {
+public class RecetasAdapter extends ArrayAdapter<Receta> implements Serializable {
 
     public RecetasAdapter(Context context, int resource, List<Receta> objects) {
         super(context, resource, objects);
@@ -29,8 +29,7 @@ public class RecetasAdapter extends ArrayAdapter<Receta> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         // Obtenim l'objecte en la possició corresponent
-        Receta receta = getItem(position);
-        Log.w("XXXX", receta.toString());
+        Receta receta = getItem(position);;
 
         // Mirem a veure si la View s'està reusant, si no es així "inflem" la View
         if (convertView == null) {

@@ -22,4 +22,5 @@
     <string name="checkedtextview">CheckedTextView</string>
     <string name="radiobutton">RadioButton</string>
     <string name="Switch">Switch</string>
+    <string name="receta_del_dia">Receta del dia!</string>
 </resources>

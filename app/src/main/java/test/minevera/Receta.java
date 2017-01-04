@@ -1,10 +1,12 @@
 package test.minevera;
 
+import java.io.Serializable;
+
 /**
  * Created by mireia on 2/01/17.
  */
 
-public class Receta {
+public class Receta implements Serializable {
     String imagen;
     String area;
     String nombreReceta;

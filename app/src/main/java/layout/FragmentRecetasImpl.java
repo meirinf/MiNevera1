@@ -1,5 +1,6 @@
 package layout;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -69,9 +70,9 @@ public class FragmentRecetasImpl extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
               //Esto mas adelante sera los detalles de receta
-                /* Intent details = new Intent(getContext(), DetailsActivity.class);
-                details.putExtra("Receta", items.get(position));
-                startActivity(details);*/
+                Intent details = new Intent(getContext(), FragmentRecetasDiaDetalles.class);
+                details.putExtra("receta", items.get(position));
+                startActivity(details);
 
                 //Despues de actualizar los datos movemos el listView hacia arriba
                lvRecetas.smoothScrollToPosition(0);
@@ -81,7 +82,7 @@ public class FragmentRecetasImpl extends Fragment {
         return view;
     }
 
-    //Esto descargara las noticias de internet
+    //Esto descargara las recetas de la api de internet
     private void descargarRecetas() {
         RefreshAsyncTask refreshAsyncTask = new RefreshAsyncTask();
         refreshAsyncTask.execute();
@@ -98,6 +99,18 @@ public class FragmentRecetasImpl extends Fragment {
             Log.d("DEBUG", recetas != null ? recetas.toString() : null);
 
             return recetas;
+        }
+
+        //CLase que sirve para aplicar los ajustes
+        @Override
+        protected void onPostExecute(ArrayList<Receta> recetas) {
+            super.onPostExecute(recetas);
+            adapter.clear();
+            for (int i = 0; i < recetas.size(); ++i) {
+                adapter.add(recetas.get(i));
+            }
+            adapter.notifyDataSetChanged();
+
         }
     }
 
