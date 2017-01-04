@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import test.minevera.ApiRecetas;
+import test.minevera.DetallesRecetasDelDia;
 import test.minevera.R;
 import test.minevera.Receta;
 
@@ -70,7 +71,7 @@ public class FragmentRecetasImpl extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
               //Esto mas adelante sera los detalles de receta
-                Intent details = new Intent(getContext(), FragmentRecetasDiaDetalles.class);
+                Intent details = new Intent(getContext(), DetallesRecetasDelDia.class);
                 details.putExtra("receta", items.get(position));
                 startActivity(details);
 

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="test.minevera">
-    <!--Pongo permisos solo para marshamllow y posteriores por si mas adelante hace falta -->
+
+    <!-- Pongo permisos solo para marshamllow y posteriores por si mas adelante hace falta -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--Permiso a internet si no la aplicación fallara al conectarse con la api -->
+    <!-- Permiso a internet si no la aplicación fallara al conectarse con la api -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -23,12 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".DetallesRecetasDelDia"></activity>
     </application>
 
 </manifest>
