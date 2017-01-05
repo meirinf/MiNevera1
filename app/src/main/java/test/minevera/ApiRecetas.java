@@ -46,19 +46,25 @@ public class ApiRecetas {
 
                 //Intento de coger todos los ingredientes
                 if (object.has("strIngredient1")){
-                    receta.setIngredientes(object.getString("strIngredient1")+" ");
+                    receta.setIngredientes(" ");
                     boolean ingredientesCargados = false;   // Determina si ya se han listado todos los ingredientes
-                    int numeroIngredientes = 0;             // Pues eso, el numero de ingredientes
+                    int numeroIngredientes = 0; // Pues eso, el numero de ingredientes
+                    String ingrediente;
 
                     while (ingredientesCargados == false) {
                         numeroIngredientes++;
                         String etiquetaIngrediente = "strIngredient" + numeroIngredientes;
 
                         if (object.has(etiquetaIngrediente)) {
-                            receta.setIngredientes(object.getString(etiquetaIngrediente) + " ");
+                            ingrediente = object.getString(etiquetaIngrediente) + " ";
+                            if (ingrediente.equalsIgnoreCase("null")){
+                                receta.setIngredientes("");
+                            }else {
+                                receta.setIngredientes(ingrediente);
+                            }
                         }
 
-                        if(!object.has("strIngredient" + numeroIngredientes+1)) {
+                       if(!object.has("strIngredient" + numeroIngredientes + 1)) {
                           receta.setIngredientes(".");
                             ingredientesCargados = true;
                         }

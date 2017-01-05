@@ -10,7 +10,7 @@ public class Receta implements Serializable {
     String imagen;
     String area;
     String nombreReceta;
-    String ingredientes;
+    String ingredientes = "" ; // la inicializo para que no me haga cosas raras como ponerme null y esas cosas
     String textoReceta;
     String categoria;
 
@@ -57,7 +57,7 @@ public class Receta implements Serializable {
     }
 
     public void setIngredientes(String ingredientes) {
-        this.ingredientes = this.ingredientes+ ingredientes;
+        this.ingredientes = this.ingredientes + ingredientes;//Así consigo que se guarde la cadena 
     }
 
     public void setArea(String area) {
