@@ -20,7 +20,6 @@ import android.view.View;
 
 import layout.FragmentBuscador;
 import layout.FragmentRecetasImpl;
-import layout.RecetaDelDia;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity
 
         //Pondremos el Fragment que utilizaremos al iniciar la aplicación
 
-                fragment = new RecetaDelDia();
+                fragment = new FragmentRecetasImpl();
 
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(null)
