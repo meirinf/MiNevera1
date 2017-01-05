@@ -30,6 +30,7 @@ public class FragmentRecetasImpl extends Fragment {
     ListView lvRecetas;
 
 
+
     public FragmentRecetasImpl() {
         // Required empty public constructor
     }
