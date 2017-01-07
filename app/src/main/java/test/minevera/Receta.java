@@ -7,13 +7,13 @@ import java.io.Serializable;
  */
 
 public class Receta implements Serializable {
+
     String imagen;
     String area;
     String nombreReceta;
     String ingredientes = "" ; // la inicializo para que no me haga cosas raras como ponerme null y esas cosas
     String textoReceta;
     String categoria;
-
 
     //Getters
 
@@ -42,7 +42,6 @@ public class Receta implements Serializable {
     }
 
     //Setters
-
 
     public void setImagen(String imagen) {
         this.imagen = imagen;

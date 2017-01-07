@@ -1,19 +1,18 @@
 package test.minevera;
 
-
-        import java.io.BufferedInputStream;
-        import java.io.BufferedReader;
-        import java.io.IOException;
-        import java.io.InputStream;
-        import java.io.InputStreamReader;
-        import java.net.HttpURLConnection;
-        import java.net.URL;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * Created by 53638138e on 13/12/16.
  */
-
 public class HttpUtils {
+
     public static String get(String dataUrl) throws IOException {
         URL url = new URL(dataUrl);
         String response = null;
@@ -25,7 +24,6 @@ public class HttpUtils {
             urlConnection.disconnect();
         }
         return response;
-
     }
 
     private static String readStream(InputStream in) throws IOException {

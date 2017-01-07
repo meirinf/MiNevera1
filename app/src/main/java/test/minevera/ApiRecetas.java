@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class ApiRecetas {
 
-    private static String url = "http://www.themealdb.com/api/json/v1/1/randomselection.php";
+        private static String url = "http://www.themealdb.com/api/json/v1/1/randomselection.php";
     private static ArrayList<Receta> recetas = new ArrayList<>();
 
     //Esta clase se encarga de bajar la información de la Api
@@ -44,34 +44,36 @@ public class ApiRecetas {
                 if (object.has("strCategory"))
                     receta.setCategoria(object.getString("strCategory"));
 
-                //Intento de coger todos los ingredientes
-                if (object.has("strIngredient1")){
-                    receta.setIngredientes(" ");
-                    boolean ingredientesCargados = false;   // Determina si ya se han listado todos los ingredientes
-                    int numeroIngredientes = 0; // Pues eso, el numero de ingredientes
-                    String ingrediente = "";
-
-                    while (ingredientesCargados == false) {
-                        numeroIngredientes++;
-                        String etiquetaIngrediente = "strIngredient" + numeroIngredientes;
-
-                        if (object.getString(etiquetaIngrediente).equalsIgnoreCase("null")){
-                            receta.setIngredientes(".");
-                            ingredientesCargados = true ;
-                        }
-                        else{
-                            receta.setIngredientes(object.getString(etiquetaIngrediente) + " ");
-                        }
-                    }
-                }
-
-
                 if (object.has("strInstructions")) {
                     receta.setTextoReceta(object.getString("strInstructions"));
                 }
                 if (object.has("strMealThumb")) {
                     receta.setImagen(object.getString("strMealThumb"));
                 }
+
+                boolean ingredientesCargados = false;   // Determina si ya se han listado todos los ingredientes
+                int numeroIngredientes = 0;             // Pues eso, el numero de ingredientes
+
+                while (ingredientesCargados == false) {
+                    numeroIngredientes++;
+                    String etiquetaIngrediente = "strIngredient" + numeroIngredientes;
+                    String nombreIngrediente = "";
+
+                    if (object.has(etiquetaIngrediente)) {
+                        nombreIngrediente = object.getString(etiquetaIngrediente);
+
+                        if(nombreIngrediente != null && !nombreIngrediente.equalsIgnoreCase("null") && !nombreIngrediente.equalsIgnoreCase("")){
+                            receta.setIngredientes(nombreIngrediente + ", ");
+                        }
+                    }
+
+
+
+                    if(!object.has("strIngredient" + (numeroIngredientes + 1))){
+                        ingredientesCargados = true;
+                    }
+                }
+
                 recetas.add(receta);
             }
         } catch (JSONException e) {
