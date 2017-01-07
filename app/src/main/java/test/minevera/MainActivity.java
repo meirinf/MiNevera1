@@ -21,8 +21,7 @@ import android.view.View;
 import layout.FragmentBuscador;
 import layout.FragmentRecetasImpl;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
         private DrawerLayout drawer; // Drawer
         Fragment fragment = null;

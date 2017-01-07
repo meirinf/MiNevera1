@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class FragmentRecetasImpl extends Fragment {
 
     private List <Receta> items;
     private RecetasAdapter adapter;
-    ListView lvRecetas;
+    GridView gvRecetas;
 
 
 
@@ -57,17 +57,17 @@ public class FragmentRecetasImpl extends Fragment {
 
 
         //Instanciamos la list view
-        lvRecetas = (ListView) view.findViewById(R.id.lvRecetas);
+        gvRecetas = (GridView) view.findViewById(R.id.gvRecetas);
         items = new ArrayList<>();
         adapter = new RecetasAdapter (
                 getContext(),
                 0,
                 items);
 
-        lvRecetas.setAdapter(adapter);
+        gvRecetas.setAdapter(adapter);
 
         // Al pulsar en una posicion del listView se ejecuta el onClick
-        lvRecetas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gvRecetas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent details = new Intent(getContext(), DetallesRecetasDelDia.class);
                 details.putExtra("receta", items.get(position));
@@ -85,6 +85,7 @@ public class FragmentRecetasImpl extends Fragment {
         refreshAsyncTask.execute();
 
     }
+
     class RefreshAsyncTask extends AsyncTask<Void, Void, ArrayList<Receta>> {
 
         @Override

@@ -39,15 +39,10 @@ public class RecetasAdapter extends ArrayAdapter<Receta> implements Serializable
 
         // Unim el codi en les Views del Layout
         TextView nombreCarta = (TextView) convertView.findViewById(R.id.adapterNombreReceta);
-        TextView tipo = (TextView) convertView.findViewById(R.id.adapterCategoria);
-        TextView area = (TextView) convertView.findViewById(R.id.adapterArea);
         ImageView imagenReceta = (ImageView) convertView.findViewById(R.id.adapterImagen);
 
         // Fiquem les dades dels objectes (provinents del JSON) en el layout
-
         nombreCarta.setText(receta.getNombreReceta());
-        tipo.setText(receta.getCategoria());
-        area.setText(receta.getArea());
 
         Glide.with(getContext()).
                 load(receta.getImagen()).
