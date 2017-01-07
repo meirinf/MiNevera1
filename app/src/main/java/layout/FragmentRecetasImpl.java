@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import test.minevera.ApiRecetas;
-import test.minevera.DetallesRecetasDelDia;
+import test.minevera.DetallesRecetas;
 import test.minevera.R;
 import test.minevera.Receta;
 
@@ -29,11 +29,10 @@ public class FragmentRecetasImpl extends Fragment {
     private RecetasAdapter adapter;
     GridView gvRecetas;
 
-
-
     public FragmentRecetasImpl() {
         // Required empty public constructor
     }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +68,7 @@ public class FragmentRecetasImpl extends Fragment {
         // Al pulsar en una posicion del listView se ejecuta el onClick
         gvRecetas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent details = new Intent(getContext(), DetallesRecetasDelDia.class);
+                Intent details = new Intent(getContext(), DetallesRecetas.class);
                 details.putExtra("receta", items.get(position));
                 startActivity(details);
             }
