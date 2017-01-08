@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import layout.FragmentBuscador;
+import layout.FragmentMisRecetas;
 import layout.FragmentRecetasImpl;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -114,6 +115,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = new FragmentBuscador();
             transaccion = true;
         }
+        if (id == R.id.Mis_Recetas_de_cocina) {
+            fragment = new FragmentMisRecetas();
+            transaccion = true;
+        }
+
 
     // Si el boleano es true llamamos al nuevo fragment
         if(transaccion){

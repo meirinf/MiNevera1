@@ -43,12 +43,14 @@
     <include layout="@layout/content_detalles_recetas" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/star_big_off"
+        app:backgroundTint="?attr/actionMenuTextColor"
+        app:rippleColor="?attr/colorButtonNormal"
+        android:id="@+id/fab" />
 
 </android.support.design.widget.CoordinatorLayout>
