@@ -70,4 +70,3 @@ public class DetallesRecetas extends AppCompatActivity {
 
 
 }
-

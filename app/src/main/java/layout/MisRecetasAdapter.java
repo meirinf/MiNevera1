@@ -30,6 +30,8 @@ public class MisRecetasAdapter extends ArrayAdapter<Receta> implements Serializa
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+
+
         // Obtenim l'objecte en la possició corresponent
         Receta receta = getItem(position);;
 

@@ -1,6 +1,7 @@
 package layout;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,11 +20,14 @@ import test.minevera.ApiRecetas;
 import test.minevera.DetallesRecetas;
 import test.minevera.R;
 import test.minevera.Receta;
+import test.minevera.databinding.FragmentRecetasBinding;
 
 /**
  * Created by mireia on 3/01/17.
  */
 public class FragmentRecetasImpl extends Fragment {
+
+    private FragmentRecetasBinding binding;
 
     private List <Receta> items;
     private RecetasAdapter adapter;
@@ -52,8 +56,9 @@ public class FragmentRecetasImpl extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //Conectamos la vista con el layout
-        View view =inflater.inflate(R.layout.fragment_recetas, container, false);
-
+        //Con el data binding
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_recetas,container,false);
+        View view = binding.getRoot();
 
         //Instanciamos la list view
         gvRecetas = (GridView) view.findViewById(R.id.gvRecetas);
