@@ -29,17 +29,20 @@ public class DetallesRecetas extends AppCompatActivity {
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Saved", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-                DataManager.guardarReceta(receta, context);
-
 
             }
         });
+
+
+
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -76,6 +79,7 @@ public class DetallesRecetas extends AppCompatActivity {
         }
 
     }
+
 
 
 }
