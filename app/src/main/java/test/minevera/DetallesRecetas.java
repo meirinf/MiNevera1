@@ -1,5 +1,6 @@
 package test.minevera;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +15,10 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 public class DetallesRecetas extends AppCompatActivity {
+
+    private Intent intent ;
+    private Receta receta ;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +35,12 @@ public class DetallesRecetas extends AppCompatActivity {
                 Snackbar.make(view, "Saved", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
+                DataManager.guardarReceta(receta, context);
+
+
             }
         });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Referencias
@@ -42,11 +51,11 @@ public class DetallesRecetas extends AppCompatActivity {
         TextView Ingredientes = (TextView)findViewById(R.id.Ingredientes) ;
 
         // Recogemos el intent y cargamos la receta que hemos pasado desde Recetas del dia
-        Intent intent = this.getIntent();
+        intent = this.getIntent();
 
         if (intent != null) {
 
-            Receta receta = (Receta) intent.getSerializableExtra("receta");
+            receta = (Receta) intent.getSerializableExtra("receta");
 
             if (receta!= null) {
 

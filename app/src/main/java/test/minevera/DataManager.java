@@ -7,8 +7,9 @@ package test.minevera;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v4.content.CursorLoader;
-import java.util.ArrayList;
+
 import nl.littlerobots.cupboard.tools.provider.UriHelper;
+
 import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
 public class DataManager {
@@ -16,7 +17,7 @@ public class DataManager {
     private static UriHelper URI_HELPER = UriHelper.with(ContentProvider.AUTHORITY);
     private static Uri RECETA_URI = URI_HELPER.getUri(Receta.class);
 
-    static void guardarReceta(ArrayList<Receta> recetas, Context context) {
+    static void guardarReceta(Receta recetas, Context context) {
         cupboard().withContext(context).put(RECETA_URI, Receta.class, recetas);
     }
 

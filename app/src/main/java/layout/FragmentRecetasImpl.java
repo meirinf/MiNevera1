@@ -56,7 +56,7 @@ public class FragmentRecetasImpl extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //Conectamos la vista con el layout
-        //Con el data binding
+        //C
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_recetas,container,false);
         View view = binding.getRoot();
 
