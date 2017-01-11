@@ -1,6 +1,7 @@
 package test.minevera;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -93,6 +94,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent a = new Intent(this, SettingsActivity.class);
+            startActivity(a);
             return true;
         }
 
