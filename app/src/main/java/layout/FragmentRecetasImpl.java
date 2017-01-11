@@ -1,12 +1,9 @@
 package layout;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -34,7 +31,7 @@ public class FragmentRecetasImpl extends Fragment {
 
     private List <Receta> items;
     private RecetasAdapter adapter;
-    GridView gvRecetas;
+    public GridView gvRecetas;
 
     public FragmentRecetasImpl() {
         // Required empty public constructor
@@ -114,23 +111,6 @@ public class FragmentRecetasImpl extends Fragment {
         protected void onPostExecute(ArrayList<Receta> recetas) {
             super.onPostExecute(recetas);
             adapter.clear();
-
-            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
-            int color;
-            String text= pref.getString("Colores_de_fondo","");
-            if (text.equals("Black"))
-                color = Color.BLACK;
-            else if (text.equals("White"))
-                color = Color.WHITE;
-            else if (text.equals("Cyan"))
-                color = Color.CYAN;
-            else
-                color = Color.TRANSPARENT;
-
-            gvRecetas.setBackgroundColor(color);
-
-
-
 
             for (int i = 0; i < recetas.size(); ++i) {
                 adapter.add(recetas.get(i));
