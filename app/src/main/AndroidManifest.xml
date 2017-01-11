@@ -37,10 +37,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="test.minevera.MainActivity" />
         </activity>
+
         <provider
-            android:name="ContentProvider"
+            android:name=".ContentProvider"
             android:authorities="${applicationId}.provider"
-            android:exported="false"></provider>
+            android:exported="false" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,5 @@
 package layout;
 
-import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.AsyncTask;
@@ -9,9 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -21,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import test.minevera.ApiRecetas;
-import test.minevera.DataManager;
 import test.minevera.DetallesRecetas;
 import test.minevera.R;
 import test.minevera.Receta;
@@ -32,8 +27,8 @@ import test.minevera.databinding.FragmentRecetasBinding;
  */
 public class FragmentRecetasImpl extends Fragment {
 
-    private Context context;
     private FragmentRecetasBinding binding;
+
     private List <Receta> items;
     private RecetasAdapter adapter;
     GridView gvRecetas;
@@ -51,33 +46,11 @@ public class FragmentRecetasImpl extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        //Cada vez que se ejecuta descargamos las recetas
         descargarRecetas();
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_refresh) {
-            items.clear();
-            descargarRecetas();
-            return true;
-        } else if (item.getItemId() == R.id.deleteDB){
-            DataManager.borrarReceta(getContext());
-        }
-        return super.onOptionsItemSelected(item);
     }
 
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){ //Afegim una opcio "Refresh" al menu del fragment
-        super.onCreateOptionsMenu(menu, inflater);
-
-        inflater.inflate(R.menu.menurecetas, menu);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -112,10 +85,11 @@ public class FragmentRecetasImpl extends Fragment {
 
     //Esto descargara las recetas de la api de internet
     private void descargarRecetas() {
-        RefreshAsyncTask task = new RefreshAsyncTask();
-        task.execute();
+        RefreshAsyncTask refreshAsyncTask = new RefreshAsyncTask();
+        refreshAsyncTask.execute();
 
     }
+
     class RefreshAsyncTask extends AsyncTask<Void, Void, ArrayList<Receta>> {
 
         @Override
@@ -125,8 +99,7 @@ public class FragmentRecetasImpl extends Fragment {
             ArrayList<Receta> recetas = api.getMeals();
 
             Log.d("DEBUG", recetas != null ? recetas.toString() : null);
-            //DataManager.guardarRecetas(recetas, context);
-           // DataManager.borrarReceta(context);
+
             return recetas;
         }
 
@@ -142,4 +115,5 @@ public class FragmentRecetasImpl extends Fragment {
 
         }
     }
+
 }
