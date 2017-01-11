@@ -54,5 +54,8 @@ public class RecetasAdapter extends ArrayAdapter<Receta> implements Serializable
         // Retornem la View replena per a mostrarla
         return binding.getRoot();
     }
+
+
+
 }
 

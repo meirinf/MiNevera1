@@ -1,5 +1,6 @@
 package layout;
 
+import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.AsyncTask;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import test.minevera.ApiRecetas;
+import test.minevera.DataManager;
 import test.minevera.DetallesRecetas;
 import test.minevera.R;
 import test.minevera.Receta;
@@ -30,8 +32,8 @@ import test.minevera.databinding.FragmentRecetasBinding;
  */
 public class FragmentRecetasImpl extends Fragment {
 
+    private Context context;
     private FragmentRecetasBinding binding;
-
     private List <Receta> items;
     private RecetasAdapter adapter;
     GridView gvRecetas;
@@ -49,10 +51,7 @@ public class FragmentRecetasImpl extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        //Cada vez que se ejecuta descargamos las recetas
-        DescargarRecetas descargarRecetas = new DescargarRecetas();
-       descargarRecetas.execute();    // Y lo ejecutamos
-
+        descargarRecetas();
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -63,12 +62,11 @@ public class FragmentRecetasImpl extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_refresh) {
-
             items.clear();
-
-            DescargarRecetas descargarRecetas = new DescargarRecetas();
-            descargarRecetas.execute();
+            descargarRecetas();
             return true;
+        } else if (item.getItemId() == R.id.deleteDB){
+            DataManager.borrarReceta(getContext());
         }
         return super.onOptionsItemSelected(item);
     }
@@ -80,7 +78,6 @@ public class FragmentRecetasImpl extends Fragment {
 
         inflater.inflate(R.menu.menurecetas, menu);
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -115,12 +112,10 @@ public class FragmentRecetasImpl extends Fragment {
 
     //Esto descargara las recetas de la api de internet
     private void descargarRecetas() {
-        RefreshAsyncTask refreshAsyncTask = new RefreshAsyncTask();
-        refreshAsyncTask.execute();
+        RefreshAsyncTask task = new RefreshAsyncTask();
+        task.execute();
 
     }
-
-
     class RefreshAsyncTask extends AsyncTask<Void, Void, ArrayList<Receta>> {
 
         @Override
@@ -130,7 +125,8 @@ public class FragmentRecetasImpl extends Fragment {
             ArrayList<Receta> recetas = api.getMeals();
 
             Log.d("DEBUG", recetas != null ? recetas.toString() : null);
-
+            //DataManager.guardarRecetas(recetas, context);
+           // DataManager.borrarReceta(context);
             return recetas;
         }
 
@@ -146,13 +142,4 @@ public class FragmentRecetasImpl extends Fragment {
 
         }
     }
-    class DescargarRecetas extends AsyncTask {
-        @Override
-        protected Object doInBackground(Object[] params) {
-            descargarRecetas();
-            return null;
-        }
-    }
-
-
 }

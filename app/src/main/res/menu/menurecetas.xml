@@ -6,4 +6,9 @@
            android:id="@+id/action_refresh"
            app:showAsAction="ifRoom"
            android:title="Refresh"></item>
+       <item
+           android:id="@+id/deleteDB"
+           android:orderInCategory="100"
+           android:title="Borrar BBDD"
+           app:showAsAction="always"/>
 </menu>

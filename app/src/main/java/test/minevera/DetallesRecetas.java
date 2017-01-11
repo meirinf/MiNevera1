@@ -1,6 +1,5 @@
 package test.minevera;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,7 +17,6 @@ public class DetallesRecetas extends AppCompatActivity {
 
     private Intent intent ;
     private Receta receta ;
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +33,6 @@ public class DetallesRecetas extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Saved", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-
-
             }
         });
 
