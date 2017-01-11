@@ -8,6 +8,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -47,8 +50,35 @@ public class FragmentRecetasImpl extends Fragment {
     public void onStart() {
         super.onStart();
         //Cada vez que se ejecuta descargamos las recetas
-        descargarRecetas();
+        DescargarRecetas descargarRecetas = new DescargarRecetas();
+       descargarRecetas.execute();    // Y lo ejecutamos
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_refresh) {
+
+            items.clear();
+
+            DescargarRecetas descargarRecetas = new DescargarRecetas();
+            descargarRecetas.execute();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){ //Afegim una opcio "Refresh" al menu del fragment
+        super.onCreateOptionsMenu(menu, inflater);
+
+        inflater.inflate(R.menu.menurecetas, menu);
     }
 
 
@@ -90,6 +120,7 @@ public class FragmentRecetasImpl extends Fragment {
 
     }
 
+
     class RefreshAsyncTask extends AsyncTask<Void, Void, ArrayList<Receta>> {
 
         @Override
@@ -115,5 +146,13 @@ public class FragmentRecetasImpl extends Fragment {
 
         }
     }
+    class DescargarRecetas extends AsyncTask {
+        @Override
+        protected Object doInBackground(Object[] params) {
+            descargarRecetas();
+            return null;
+        }
+    }
+
 
 }
