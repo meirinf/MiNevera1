@@ -22,7 +22,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginStart="2dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="250dp" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"

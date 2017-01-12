@@ -2,11 +2,8 @@ package test.minevera;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -21,7 +18,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.GridView;
 
 import layout.FragmentBuscador;
 import layout.FragmentMisRecetas;
@@ -31,7 +27,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         private DrawerLayout drawer; // Drawer
         Fragment fragment = null;
-        GridView gvRecetas ;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Permisos (solo Marshmallow y superior)
         pedirPermisoSD();
+
+
 
 
 
@@ -91,24 +90,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    @Override
-    protected void onResume() {
-
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        int color;
-        String text= pref.getString("Colores_de_fondo","");
-        if (text.equals("Black"))
-            color = Color.BLACK;
-        else if (text.equals("White"))
-            color = Color.WHITE;
-        else if (text.equals("Cyan"))
-            color = Color.CYAN;
-        else
-            color = Color.TRANSPARENT;
-
-
-        super.onResume();
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

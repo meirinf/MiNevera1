@@ -3,6 +3,7 @@ package layout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.FrameLayout;
 
 import test.minevera.MainActivity;
 
@@ -11,6 +12,8 @@ import test.minevera.MainActivity;
  */
 
 public class SplashScreenActivity extends AppCompatActivity {
+
+        FrameLayout FrameLayout;
 
         /**
          *  En este activity mostramos la pantalla de bienvenida
