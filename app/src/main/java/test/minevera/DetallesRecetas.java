@@ -1,5 +1,6 @@
 package test.minevera;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,27 +19,14 @@ public class DetallesRecetas extends AppCompatActivity {
     private Intent intent ;
     private Receta receta ;
 
+    Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles_recetas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Saved", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-
-
-
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -69,6 +57,17 @@ public class DetallesRecetas extends AppCompatActivity {
                         fitCenter().
                         into(imagen);
             }
+
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Snackbar.make(view, "Saved", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    DataManager.guardarRecetas(receta, context);
+                }
+            });
+
         }
         else{
             Toast.makeText(this, "Error al cargar la carta", Toast.LENGTH_SHORT).show();
