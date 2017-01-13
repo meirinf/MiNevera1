@@ -21,6 +21,8 @@ public class ApiRecetas {
 
     public static ArrayList<Receta> getMeals() {
 
+        recetas.clear();
+
         //Aqui pasa los parametros de configuración categoria y nombre de receta
         Uri builtUri = Uri.parse(url)
                 .buildUpon()
@@ -86,6 +88,8 @@ public class ApiRecetas {
     }
 
     public static ArrayList<Receta> getMealsSearch(String name) {
+
+        recetas.clear();
 
         //Aqui pasa los parametros de configuración categoria y nombre de receta
         Uri builtUri = Uri.parse(urlBusca)
