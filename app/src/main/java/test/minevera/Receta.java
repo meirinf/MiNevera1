@@ -8,12 +8,12 @@ import java.io.Serializable;
 
 public class Receta implements Serializable {
 
-    String imagen;
-    String area;
-    String nombreReceta;
-    String ingredientes = "" ; // la inicializo para que no me haga cosas raras como ponerme null y esas cosas
-    String textoReceta;
-    String categoria;
+    public String imagen;
+    public String area;
+    public String nombreReceta;
+    public String ingredientes = "" ; // la inicializo para que no me haga cosas raras como ponerme null y esas cosas
+    public String textoReceta;
+    public String categoria;
 
     //Getters
 

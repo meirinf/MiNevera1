@@ -15,7 +15,7 @@ import test.minevera.databinding.RecetasRowBinding;
  * Created by mireia on 10/01/17.
  */
 
-public abstract class RecetasCursorAdapter extends CupboardCursorAdapte <Receta> {
+public class RecetasCursorAdapter extends CupboardCursorAdapte <Receta> {
 
     public RecetasCursorAdapter(Context context, Class<Receta> entityClass) {
         super(context, entityClass);

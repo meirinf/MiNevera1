@@ -25,9 +25,9 @@ public class RecetasAdapter extends ArrayAdapter<Receta> implements Serializable
         super(context, resource, objects);
     }
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
 
 
         // Obtenim l'objecte en la possició corresponent
