@@ -92,12 +92,7 @@ public class ApiRecetas {
         recetas.clear();
 
         //Aqui pasa los parametros de configuración categoria y nombre de receta
-        Uri builtUri = Uri.parse(urlBusca)
-                .buildUpon()
-                .appendQueryParameter("name",name)
-                .build();
-
-        String urls = builtUri.toString();
+        String urls = urlBusca.concat(name.replace(" ", "%20"));
 
         try {
             String JsonResponse = HttpUtils.get(urls);
@@ -105,7 +100,7 @@ public class ApiRecetas {
             JSONObject data = new JSONObject(JsonResponse);
             JSONArray jsonRecetas = data.getJSONArray("meals");
 
-            //se cargan todos los parametros elejidos
+            //se cargan todos los parametros elegidos
             for (int i = 0; i < jsonRecetas.length(); i++) {
                 Receta receta = new Receta();
                 JSONObject object = jsonRecetas.getJSONObject(i);
@@ -123,9 +118,9 @@ public class ApiRecetas {
                     receta.setImagen(object.getString("strMealThumb"));
                 }
 
-                boolean ingredientesCargados = false;   // Determina si ya se han listado todos los ingredientes
-                int numeroIngredientes = 0;             // Pues eso, el numero de ingredientes
-
+                // Determina si ya se han listado todos los ingredientes
+                boolean ingredientesCargados = false;
+                int numeroIngredientes = 0;
                 while (ingredientesCargados == false) {
                     numeroIngredientes++;
                     String etiquetaIngrediente = "strIngredient" + numeroIngredientes;
@@ -138,8 +133,6 @@ public class ApiRecetas {
                             receta.setIngredientes(nombreIngrediente + ", ");
                         }
                     }
-
-
 
                     if(!object.has("strIngredient" + (numeroIngredientes + 1))){
                         ingredientesCargados = true;

@@ -27,17 +27,19 @@ import test.minevera.R;
 import test.minevera.Receta;
 import test.minevera.databinding.FragmentBuscadorBinding;
 
-
 public class FragmentBuscador extends Fragment {
 
-    public FragmentBuscador() {
-        // Required empty public constructor
-    }
     private FragmentBuscadorBinding binding;
+
     private List<Receta> items;
     private RecetasAdapter adapter;
     public GridView gvRecetas;
     public TextView noEncontrado;
+
+    public FragmentBuscador() {
+        // Required empty public constructor
+    }
+
     @Override
     public void onStart() {
         setHasOptionsMenu(true);
@@ -46,6 +48,7 @@ public class FragmentBuscador extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         //Conectamos la vista con el layout
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_buscador,container,false);
         View view = binding.getRoot();
@@ -85,15 +88,16 @@ public class FragmentBuscador extends Fragment {
         inflater.inflate(R.menu.buscador, menu);
 
         MenuItem item = menu.findItem(R.id.action_search);
-        SearchView sv = new SearchView(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
-        sv.setQueryHint("Example: Roasted Chicken");
+        SearchView buscador = new SearchView(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
+        buscador.setMaxWidth(Integer.MAX_VALUE);
+        buscador.setQueryHint("Example: Roasted Chicken");
         MenuItemCompat.setShowAsAction(item, MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
-        MenuItemCompat.setActionView(item, sv);
-        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        MenuItemCompat.setActionView(item, buscador);
+        buscador.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-                descargarRecetas("");
+                descargarRecetas(query);
                 comprobarResultados();
                 return false;
             }
@@ -108,6 +112,7 @@ public class FragmentBuscador extends Fragment {
     }
 
     public void comprobarResultados(){
+
         if(items.size() > 0){
             noEncontrado.setVisibility(View.INVISIBLE);
         }
@@ -160,5 +165,4 @@ public class FragmentBuscador extends Fragment {
             adapter.notifyDataSetChanged();
         }
     }
-
 }
