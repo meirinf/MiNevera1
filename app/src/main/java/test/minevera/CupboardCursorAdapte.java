@@ -14,7 +14,7 @@ import static nl.qbusict.cupboard.CupboardFactory.cupboard;
  * Created by mireia on 10/01/17.
  */
 
-public abstract class CupboardCursorAdapte<T> extends CursorAdapter {
+public abstract class CupboardCursorAdapte <T> extends CursorAdapter {
 
     private final Cupboard mCupboard;
     private Class<T> mEntityClass;

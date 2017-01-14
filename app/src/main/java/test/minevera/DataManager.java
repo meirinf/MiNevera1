@@ -16,11 +16,10 @@ public class DataManager {
 
     private static UriHelper URI_HELPER = UriHelper.with(ContentProvider.AUTHORITY);
     private static Uri RECETA_URI = URI_HELPER.getUri(Receta.class);
-   // private static ArrayList<Receta> Recetas;
+
 
     public static void guardarRecetas(Receta recetas, Context context) {
-        cupboard().withContext(context).put(RECETA_URI, Receta.class, recetas);
-       // Recetas.add(recetas);
+       cupboard().withContext(context).put(RECETA_URI, Receta.class, recetas);
     }
 
     public static void borrarReceta(Context context) {

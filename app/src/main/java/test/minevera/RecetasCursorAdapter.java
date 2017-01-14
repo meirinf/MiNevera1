@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 
 import test.minevera.databinding.FragmentMisRecetasRowBinding;
-import test.minevera.databinding.RecetasRowBinding;
 
 /**
  * Created by mireia on 10/01/17.
@@ -33,7 +32,7 @@ public class RecetasCursorAdapter extends CupboardCursorAdapte <Receta> {
     @Override
     public void bindView(View view, Context context, Receta receta) {
 
-        RecetasRowBinding binding = DataBindingUtil.getBinding(view);
+        FragmentMisRecetasRowBinding binding = DataBindingUtil.getBinding(view);
 
         binding.adapterNombreReceta.setText(receta.getNombreReceta());
 

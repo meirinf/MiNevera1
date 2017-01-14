@@ -41,7 +41,7 @@ public class FragmentMisRecetas extends Fragment implements LoaderManager.Loader
         super.onStart();
         //Cada vez que se ejecuta descargamos las recetas
         //descargarRecetas();
-        getLoaderManager().restartLoader(0,null,this);
+        //getLoaderManager().restartLoader(0,null,this);
 
     }
 
