@@ -7,4 +7,10 @@
         app:showAsAction="always"
         android:title="Configuracion"
         android:icon="@drawable/ic_settings"/>
+    <item
+        android:id="@+id/deleteDB"
+        android:orderInCategory="100"
+        android:title="Borrar Mis Recetas"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_action_name"/>
 </menu>

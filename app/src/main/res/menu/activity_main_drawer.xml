@@ -13,7 +13,7 @@
             android:title="@string/mis_recetas" />
         <item
             android:id="@+id/Recetas_del_dia"
-            android:title="Recetas del dia" />
+            android:title="Descubre" />
 
     </group>
 

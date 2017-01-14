@@ -120,6 +120,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(a);
             return true;
         }
+        if (id == R.id.deleteDB){
+            DataManager.borrarReceta(getApplicationContext());
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
