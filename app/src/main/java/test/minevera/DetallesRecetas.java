@@ -68,7 +68,7 @@ public class DetallesRecetas extends AppCompatActivity {
                     Snackbar.make(view, "Saved", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
 
-                    DataManager.guardarRecetas(receta, getBaseContext());
+                    DataManager.guardarRecetas(receta, getApplicationContext());
                 }
             });
 
