@@ -24,11 +24,12 @@
     <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
 
     <ListPreference
+        android:key = "listaColores"
         android:defaultValue="-1"
         android:entries="@array/Colores_de_fondo"
         android:entryValues="@array/Colores_de_fondo"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
-        android:title="Seleciona un fondo" />
+        android:title="Seleciona un color para el FAB" />
 
 </PreferenceScreen>

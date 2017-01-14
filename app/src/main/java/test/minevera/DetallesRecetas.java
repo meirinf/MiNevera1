@@ -13,13 +13,10 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
-
 public class DetallesRecetas extends AppCompatActivity {
 
     private Intent intent ;
     private Receta receta ;
-    ArrayList<Receta> recetas;
 
 
 

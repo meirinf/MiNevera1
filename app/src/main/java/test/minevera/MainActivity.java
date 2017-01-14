@@ -2,8 +2,12 @@ package test.minevera;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -25,10 +29,28 @@ import layout.FragmentRecetasImpl;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-        private DrawerLayout drawer; // Drawer
-        Fragment fragment = null;
+    private DrawerLayout drawer; // Drawer
+    Fragment fragment = null;
+    FloatingActionButton fab;
 
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+        // Recuperamos los valores de las settings
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        String color = sp.getString("listaColores", "Cyan");
+
+        if(color.equalsIgnoreCase("black")){
+            fab.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
+        }
+        else if(color.equalsIgnoreCase("gray")){
+            fab.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+        }
+        else if(color.equalsIgnoreCase("cyan")){
+            fab.setBackgroundTintList(ColorStateList.valueOf(Color.CYAN));
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +62,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Permisos (solo Marshmallow y superior)
         pedirPermisoSD();
 
-
-
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Próximamente, añadir recetas", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -64,18 +82,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //Pondremos el Fragment que utilizaremos al iniciar la aplicación
 
-                fragment = new FragmentRecetasImpl();
+        fragment = new FragmentRecetasImpl();
 
         getSupportFragmentManager().beginTransaction()
-                .addToBackStack(null)
                 .replace(R.id.content_main, fragment)
                 .commit();
-
     }
 
     @Override
     public void onBackPressed() {
-      drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -117,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String tag = null;
 
         if (id == R.id.Recetas_del_dia) {
-           fragment = new FragmentRecetasImpl();
+            fragment = new FragmentRecetasImpl();
             transaccion = true;
         }
         if (id == R.id.Buscador) {
@@ -130,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-    // Si el boleano es true llamamos al nuevo fragment
+        // Si el boleano es true llamamos al nuevo fragment
         if(transaccion){
 
             getSupportFragmentManager().beginTransaction()
@@ -146,16 +162,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     // Puede que se use al almacenar en caché algunas imagenes o la BBDD
-       public void pedirPermisoSD(){
+    public void pedirPermisoSD(){
 
-           int permissionCheck2 = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permissionCheck2 = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-            if (!(permissionCheck2 == PackageManager.PERMISSION_GRANTED)) {
-                // Should we show an explanation?
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {} else {
-                    // do request the permission
-                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 8);
-                }
+        if (!(permissionCheck2 == PackageManager.PERMISSION_GRANTED)) {
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {} else {
+                // do request the permission
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 8);
             }
-       }
+        }
+    }
 }

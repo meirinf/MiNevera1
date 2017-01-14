@@ -176,7 +176,7 @@
 
     <string-array name="Colores_de_fondo">
         <item>Black</item>
-        <item>White</item>
+        <item>Gray</item>
         <item>Cyan</item>
     </string-array>
 
