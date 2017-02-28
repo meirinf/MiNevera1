@@ -26,6 +26,7 @@ import android.view.View;
 import layout.FragmentBuscador;
 import layout.FragmentMisRecetas;
 import layout.FragmentRecetasImpl;
+import layout.RecetaPerson;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -146,6 +147,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.Mis_Recetas_de_cocina) {
             fragment = new FragmentMisRecetas();
+            transaccion = true;
+        }
+        if (id == R.id.CrearRecetaPropia){
+            fragment = new RecetaPerson();
             transaccion = true;
         }
 

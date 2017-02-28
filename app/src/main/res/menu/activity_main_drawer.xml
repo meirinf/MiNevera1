@@ -14,6 +14,11 @@
         <item
             android:id="@+id/Recetas_del_dia"
             android:title="Descubre" />
+        <item
+            android:id="@+id/CrearRecetaPropia"
+            android:title="Descubre" />
+
+
 
     </group>
 
