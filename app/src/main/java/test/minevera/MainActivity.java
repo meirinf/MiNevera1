@@ -67,8 +67,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Próximamente, añadir recetas", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Aqui Puedes Crear tu receta Personalizada", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                fragment = new RecetaPerson();
+                boolean transaccion = true;
+                String tag = null;
+                if(transaccion){
+
+                    getSupportFragmentManager().beginTransaction()
+                            .addToBackStack(null)
+                            .replace(R.id.content_main, fragment, tag)
+                            .commit();
+                }
+
+
+
             }
         });
 
