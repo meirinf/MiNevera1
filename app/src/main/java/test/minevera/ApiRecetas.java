@@ -19,6 +19,8 @@ public class ApiRecetas {
 
     //Esta clase se encarga de bajar la información de la Api
 
+
+
     public static ArrayList<Receta> getMeals() {
 
         recetas.clear();
