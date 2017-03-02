@@ -51,8 +51,9 @@ public class Mapa extends Fragment {
 
         initializeMap();
         setZoom();
-        //setOverlays();
-        map.invalidate();
+        setOverlays();
+
+        //map.invalidate();
 
 
 
@@ -61,8 +62,10 @@ public class Mapa extends Fragment {
         return view;
     }
 
+
+
     private void initializeMap() {
-        map.setTileSource(TileSourceFactory.MAPQUESTOSM);
+        map.setTileSource(TileSourceFactory.DEFAULT_TILE_SOURCE);
         map.setTilesScaledToDpi(true);
         map.setMultiTouchControls(true);
         map.setBuiltInZoomControls(true);
@@ -71,7 +74,7 @@ public class Mapa extends Fragment {
     private void setZoom() {
                //  Setteamos el zoom al mismo nivel y ajustamos la posición a un geopunto
         mapController = map.getController();
-        mapController.setZoom(15);
+        mapController.setZoom(25);
            }
 
 
@@ -91,6 +94,9 @@ public class Mapa extends Fragment {
         mScaleBarOverlay = new ScaleBarOverlay(map);
         mScaleBarOverlay.setCentred(true);
         mScaleBarOverlay.setScaleBarOffset(dm.widthPixels / 2, 10);
+        mMinimapOverlay = new MinimapOverlay(getContext(), map.getTileRequestCompleteHandler());
+        mMinimapOverlay.setWidth(dm.widthPixels / 5);
+        mMinimapOverlay.setHeight(dm.heightPixels / 5);
 
         mCompassOverlay = new CompassOverlay(
                 getContext(),
