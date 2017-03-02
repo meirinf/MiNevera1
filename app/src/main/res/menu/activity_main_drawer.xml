@@ -17,6 +17,9 @@
         <item
             android:id="@+id/CrearRecetaPropia"
             android:title="Crea tu receta Personalizada" />
+        <item
+            android:id="@+id/MapadeRecetas"
+            android:title="Mapa de Recetas" />
     </group>
 
 </menu>

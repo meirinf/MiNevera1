@@ -167,6 +167,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             transaccion = true;
         }
 
+        if (id == R.id.MapadeRecetas){
+            fragment = new Mapa();
+            transaccion = true;
+        }
+
 
         // Si el boleano es true llamamos al nuevo fragment
         if(transaccion){

@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import test.minevera.R;
 
@@ -106,6 +107,7 @@ public class RecetaPerson extends Fragment {
 
                     Glide.with(getContext()).load(pathFotoTemporal).into(recetaImage);
                     //Falta guardar la Url en la base de datos.
+
                 }
             }
         } catch (Exception e) {
